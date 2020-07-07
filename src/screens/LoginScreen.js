@@ -7,8 +7,6 @@ import {
   Right,
   Title,
   Content,
-  List,
-  ListItem,
   Label,
   Input,
   Form,
@@ -17,10 +15,29 @@ import {
   Text,
 } from "native-base";
 import { StyleSheet } from "react-native";
+import { signInWithEmail } from "../service/FireAuthHelper";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  /**
+   * @description Function to Login with Email/Password.
+   * @param null.
+   */
+
+  const loginWithEmail = () => {
+    signInWithEmail(email, password)
+      .then((user) => {
+        console.log(user);
+        alert("User logged in Successfully");
+        setEmail("");
+        setPassword("");
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
 
   return (
     <Container>
@@ -47,10 +64,11 @@ const LoginScreen = ({ navigation }) => {
               placeholder="Password"
               value={password}
               onChangeText={(text) => setPassword(text)}
+              secureTextEntry={true}
             />
           </Item>
         </Form>
-        <Button rounded style={styles.button}>
+        <Button rounded style={styles.button} onPress={loginWithEmail}>
           <Text> Login </Text>
         </Button>
 

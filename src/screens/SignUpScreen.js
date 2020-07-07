@@ -18,10 +18,29 @@ import {
   Icon,
 } from "native-base";
 import { StyleSheet } from "react-native";
+import { signUpWithEmail } from "../service/FireAuthHelper";
 
 const SignUpScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  /**
+   * @description Function to Register with Email/Password.
+   * @param null.
+   */
+
+  const registerWithEmail = () => {
+    signUpWithEmail(email, password)
+      .then((user) => {
+        console.log(user);
+        alert("User registerd Successfully");
+        setEmail("");
+        setPassword("");
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
 
   return (
     <Container>
@@ -52,11 +71,12 @@ const SignUpScreen = ({ navigation }) => {
               placeholder="Password"
               value={password}
               onChangeText={(text) => setPassword(text)}
+              secureTextEntry
             />
           </Item>
         </Form>
 
-        <Button rounded style={styles.button}>
+        <Button rounded style={styles.button} onPress={registerWithEmail}>
           <Text> Register </Text>
         </Button>
       </Content>
