@@ -56,3 +56,44 @@ export const signOutUser = () => {
       });
   });
 };
+
+let userLoaded = false;
+
+/**
+ * @description Function check if User is logged in or not.
+ * @param null.
+ * @returns User object if logged in otherwise null
+ */
+
+export const checkAuthState = () => {
+  return new Promise((resolve, reject) => {
+    if (userLoaded && Auth().currentUser != null) {
+      resolve(Auth().currentUser);
+    }
+    const unsubscribe = Auth().onAuthStateChanged((user) => {
+      userLoaded = true;
+      unsubscribe();
+      resolve(user);
+    }, reject);
+  });
+};
+
+/**
+ * @description Function to get Current LoggedIn User.
+ * @param null.
+ * @returns User object if logged in otherwise null
+ */
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    if (Auth().currentUser) {
+      resolve(Auth().currentUser);
+    } else {
+      const unsubscribe = Auth().onAuthStateChanged((user) => {
+        userLoaded = true;
+        unsubscribe();
+        resolve(user);
+      }, reject);
+    }
+  });
+};

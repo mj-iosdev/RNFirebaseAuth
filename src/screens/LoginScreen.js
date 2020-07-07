@@ -33,6 +33,7 @@ const LoginScreen = ({ navigation }) => {
         alert("User logged in Successfully");
         setEmail("");
         setPassword("");
+        navigation.navigate("ProfileScreen");
       })
       .catch((error) => {
         alert(error);
