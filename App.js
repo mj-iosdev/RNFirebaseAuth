@@ -19,7 +19,12 @@ import {
 import { checkAuthState } from "./src/service/FireAuthHelper";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+
+import LoginLanding from './src/screens/LoginLandingScreen';
 import LoginScreen from "./src/screens/LoginScreen";
+import LoginWithPhone from './src/screens/LoginWithPhone';
+import PhoneOTP from './src/screens/PhoneOTP';
+
 import SignUpScreen from "./src/screens/SignUpScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
 
@@ -54,9 +59,12 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator
           headerMode="none"
-          initialRouteName={user ? "ProfileScreen" : "LoginScreen"}
+          initialRouteName={user ? "ProfileScreen" : "LoginLanding"}
         >
+          <Stack.Screen name="LoginLanding" component={LoginLanding} />
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
+          <Stack.Screen name="LoginWithPhone" component={LoginWithPhone} />
+          <Stack.Screen name="PhoneOTP" component={PhoneOTP} />
           <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
           <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
         </Stack.Navigator>

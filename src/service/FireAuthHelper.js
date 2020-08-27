@@ -1,5 +1,82 @@
 import React from "react";
-import { Auth } from "../setup/firebase/FirebaseSetup";
+// import { Auth } from "../setup/firebase/FirebaseSetup";
+import Auth from "@react-native-firebase/auth";
+/**
+ * @description Function to Login with Phone number.
+ * @param phoneNumber -Phone of Facebook which get from facebook API.
+ */
+
+export const signInWithPhoneNumber = (phoneNumber) => {
+  return new Promise(function (resolve, reject) {
+    Auth()
+      .signInWithPhoneNumber(phoneNumber)
+      .then((result) => {
+        resolve(result);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
+/**
+ * @description Function to Login with Facebook.
+ * @param facebookToken -Token of Facebook which get from facebook API.
+ */
+
+export const signInWithFacebook = (facebookToken) => {
+  const facebookCredential = Auth.FacebookAuthProvider.credential(facebookToken);
+
+  return new Promise(function (resolve, reject) {
+    Auth()
+      .signInWithCredential(facebookCredential)
+      .then((user) => {
+        resolve(user);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
+/**
+ * @description Function to Login with Gmail.
+ * @param gmailToken - Token of Gmail which get from Gmail API.
+ */
+export const signInWithGmail = (gmailToken) => {
+  const googleCredential = Auth.GoogleAuthProvider.credential(gmailToken);
+
+  return new Promise(function (resolve, reject) {
+    Auth()
+      .signInWithCredential(googleCredential)
+      .then((user) => {
+        resolve(user);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
+/**
+ * @description Function to Login with Apple.
+ * @param identityToken - Token of Apple which get from Apple API.
+ * @param nonce - nonce of Apple which get from Apple API.
+ */
+export const signInWithApple = (identityToken, nonce) => {
+  const appleCredential = Auth.AppleAuthProvider.credential(identityToken, nonce);
+
+  return new Promise(function (resolve, reject) {
+    Auth()
+      .signInWithCredential(appleCredential)
+      .then((user) => {
+        resolve(user);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
 
 /**
  * @description Function to Login with Email/Password.
@@ -8,7 +85,7 @@ import { Auth } from "../setup/firebase/FirebaseSetup";
  */
 
 export const signInWithEmail = (email, password) => {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     Auth()
       .signInWithEmailAndPassword(email, password)
       .then((user) => {
@@ -27,7 +104,7 @@ export const signInWithEmail = (email, password) => {
  */
 
 export const signUpWithEmail = (email, password) => {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     Auth()
       .createUserWithEmailAndPassword(email, password)
       .then((user) => {
@@ -45,7 +122,7 @@ export const signUpWithEmail = (email, password) => {
  */
 
 export const signOutUser = () => {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     Auth()
       .signOut()
       .then((user) => {

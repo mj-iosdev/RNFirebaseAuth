@@ -13,13 +13,16 @@ import {
   Item,
   Button,
   Text,
+  Icon
 } from "native-base";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Alert } from "react-native";
 import { signInWithEmail } from "../service/FireAuthHelper";
+import Loader from '../components/Loader';
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false); //For Loader Hide/Show
 
   /**
    * @description Function to Login with Email/Password.
@@ -27,23 +30,37 @@ const LoginScreen = ({ navigation }) => {
    */
 
   const loginWithEmail = () => {
+    setIsLoading(true)
     signInWithEmail(email, password)
       .then((user) => {
         console.log(user);
         alert("User logged in Successfully");
         setEmail("");
         setPassword("");
+        setIsLoading(false)
         navigation.navigate("ProfileScreen");
       })
       .catch((error) => {
-        alert(error);
+        Alert.alert(
+          'Something went wrong!',
+          error
+          [{
+            text: "OK",
+            onPress: () => setIsLoading(false)
+          }]
+        );
+        // alert(error);
       });
   };
 
   return (
     <Container>
       <Header>
-        <Left />
+        <Left>
+          <Button transparent onPress={() => navigation.goBack()}>
+            <Icon name="arrow-back" />
+          </Button>
+        </Left>
         <Body>
           <Title>Login</Title>
         </Body>
@@ -69,18 +86,13 @@ const LoginScreen = ({ navigation }) => {
             />
           </Item>
         </Form>
+
+
         <Button rounded style={styles.button} onPress={loginWithEmail}>
           <Text> Login </Text>
         </Button>
-
-        <Button
-          rounded
-          style={styles.button}
-          onPress={() => navigation.navigate("SignUpScreen")}
-        >
-          <Text> Register </Text>
-        </Button>
       </Content>
+      <Loader isAnimate={isLoading} />
     </Container>
   );
 };

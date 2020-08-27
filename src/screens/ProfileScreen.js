@@ -25,7 +25,7 @@ const ProfileScreen = ({ navigation }) => {
     signOutUser()
       .then(() => {
         alert("User Signed out");
-        navigation.navigate("LoginScreen");
+        navigation.navigate("LoginLanding");
       })
       .catch((error) => {
         alert(error);

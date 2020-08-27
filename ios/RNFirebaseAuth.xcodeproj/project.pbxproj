@@ -22,6 +22,7 @@
 		387622E0E7F72D0AF7F698F6 /* libPods-RNFirebaseAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB6B8248809CFD277EFE88D /* libPods-RNFirebaseAuth.a */; };
 		47F5EF140707477EACB4BB12 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07465A8504C245BEAFC21E52 /* MaterialIcons.ttf */; };
 		4CE7EB3C2BE2F466B8FF5ABA /* libPods-RNFirebaseAuth-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51FE8F50377A1B8C3E4A0CDA /* libPods-RNFirebaseAuth-tvOS.a */; };
+		4FD5B28824E3AE65005CB25A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5B28724E3AE65005CB25A /* GoogleService-Info.plist */; };
 		5AC9686CD13942F991056526 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C820E780E4EE456290AA6BEF /* FontAwesome5_Regular.ttf */; };
 		60ADFA121C5D4923BCC1DCA5 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FB8E2D458874ADDB8C84C6A /* SimpleLineIcons.ttf */; };
 		6123867729A34EC7877E6DDB /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C052F694E13A45D5BFB9A6B3 /* Roboto_medium.ttf */; };
@@ -81,6 +82,8 @@
 		3BF1958BB0A8437DB8418099 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/native-base/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		3FB6B8248809CFD277EFE88D /* libPods-RNFirebaseAuth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNFirebaseAuth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		422FF613B7064BA7B5544D0D /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		4FD5B28724E3AE65005CB25A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "RNFirebaseAuth/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4FD5B28924E3B9DE005CB25A /* RNFirebaseAuth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = RNFirebaseAuth.entitlements; path = RNFirebaseAuth/RNFirebaseAuth.entitlements; sourceTree = "<group>"; };
 		51FE8F50377A1B8C3E4A0CDA /* libPods-RNFirebaseAuth-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNFirebaseAuth-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60B2A56C1E9D46B084026E42 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		7C2F5216B5684CF9970188A9 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
@@ -189,6 +192,8 @@
 		13B07FAE1A68108700A75B9A /* RNFirebaseAuth */ = {
 			isa = PBXGroup;
 			children = (
+				4FD5B28924E3B9DE005CB25A /* RNFirebaseAuth.entitlements */,
+				4FD5B28724E3AE65005CB25A /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -356,9 +361,11 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = LJ24KT9R42;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = LJ24KT9R42;
 						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -424,6 +431,7 @@
 				6123867729A34EC7877E6DDB /* Roboto_medium.ttf in Resources */,
 				9DE562556B4E4FD59C9D4FA2 /* Roboto.ttf in Resources */,
 				FF5CBFB6C7E0456CAD24D5E5 /* rubicon-icon-font.ttf in Resources */,
+				4FD5B28824E3AE65005CB25A /* GoogleService-Info.plist in Resources */,
 				60ADFA121C5D4923BCC1DCA5 /* SimpleLineIcons.ttf in Resources */,
 				F3D21458E90D486AA082A544 /* Zocial.ttf in Resources */,
 			);
@@ -490,9 +498,29 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RNFirebaseAuth/Pods-RNFirebaseAuth-resources.sh",
+				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Feather.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Foundation.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -574,6 +602,8 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RNFirebaseAuth-RNFirebaseAuthTests/Pods-RNFirebaseAuth-RNFirebaseAuthTests-resources.sh",
+				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -593,6 +623,8 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
@@ -745,6 +777,7 @@
 			baseConfigurationReference = E34363FB8DEDAA6B81A86B53 /* Pods-RNFirebaseAuth-RNFirebaseAuthTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = LJ24KT9R42;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -769,6 +802,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = LJ24KT9R42;
 				INFOPLIST_FILE = RNFirebaseAuthTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -789,7 +823,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = RNFirebaseAuth/RNFirebaseAuth.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LJ24KT9R42;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -816,7 +852,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = RNFirebaseAuth/RNFirebaseAuth.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LJ24KT9R42;
 				INFOPLIST_FILE = RNFirebaseAuth/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (

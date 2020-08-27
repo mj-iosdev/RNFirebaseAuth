@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "project_number",
+    "firebase_url": "firebase_url",
+    "project_id": "project_id",
+    "storage_bucket": "storage_bucket"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954003985339:android:ecc043adf1627c5210ea9e",
+        "android_client_info": {
+          "package_name": "com.rnfirebaseauth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "client_id",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rnfirebaseauth",
+            "certificate_hash": "f886e01b88f20a81e19cdf73a0533a174071144d"
+          }
+        },
+        {
+          "client_id": "client_id",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "api_key"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "client_id",
+              "client_type": 3
+            },
+            {
+              "client_id": "client_id",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.RNFirebaseAuth"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

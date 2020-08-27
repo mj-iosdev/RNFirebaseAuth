@@ -7,8 +7,6 @@ import {
   Right,
   Title,
   Content,
-  List,
-  ListItem,
   Label,
   Input,
   Form,
@@ -17,12 +15,14 @@ import {
   Text,
   Icon,
 } from "native-base";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Alert } from "react-native";
 import { signUpWithEmail } from "../service/FireAuthHelper";
+import Loader from '../components/Loader';
 
 const SignUpScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false); //For Loader Hide/Show
 
   /**
    * @description Function to Register with Email/Password.
@@ -30,15 +30,25 @@ const SignUpScreen = ({ navigation }) => {
    */
 
   const registerWithEmail = () => {
+    setIsLoading(true)
     signUpWithEmail(email, password)
       .then((user) => {
         console.log(user);
         alert("User registerd Successfully");
         setEmail("");
         setPassword("");
+        setIsLoading(false)
       })
       .catch((error) => {
-        alert(error);
+        console.log("Error while registering phone number :-- ", error);
+        Alert.alert(
+          'Error',
+          'Something went wrong!',
+          [{
+            text: "OK",
+            onPress: () => setIsLoading(false)
+          }]
+        );
       });
   };
 
@@ -80,6 +90,7 @@ const SignUpScreen = ({ navigation }) => {
           <Text> Register </Text>
         </Button>
       </Content>
+      <Loader isAnimate={isLoading} />
     </Container>
   );
 };
